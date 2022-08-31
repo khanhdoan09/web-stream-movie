@@ -1,0 +1,22 @@
+.name {
+    font-size: 28px;
+    text-align: center;
+    color: rgb(139 92 246);
+}
+.origin-name {
+    font-size: 20px;
+    text-align: center;
+    color: rgb(14 165 233);
+}
+
+.left-column {
+    text-transform: capitalize;
+    color: rgb(56 189 248);
+    white-space: nowrap;
+    padding-right: 0.5rem;
+}
+
+.right-column {
+    color: rgb(165 180 252);
+    padding-left: '0.5rem';
+}

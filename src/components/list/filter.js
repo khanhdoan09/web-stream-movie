@@ -2,7 +2,7 @@ import '../../assets/css/filter.css'
 const Filter = () =>{
     return (
         <div className="container__content p-3">
-            <form class="d-flex flex-wrap align-items-center">
+            <form className="d-flex flex-wrap align-items-center">
                 <span className="px-3">Lọc Phim</span>
                 <div className="d-flex flex-wrap">
                     <div className="px-2">

@@ -29,3 +29,8 @@ td {
     color: rgb(74 222 128);
     background-color: rgb(15 23 42);
 }
+
+.table__colume {
+    padding: 15px 15px 15px 0;
+    text-align: left;
+}
