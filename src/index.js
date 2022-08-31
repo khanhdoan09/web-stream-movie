@@ -1,14 +1,17 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/home";
+import List from "./components/list/list";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
+import './assets/css/main.css'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home />} />
+        <Route path="home" element={<Home />} />
+        <Route index element={<List />} />
       </Routes>
     </BrowserRouter>
   );

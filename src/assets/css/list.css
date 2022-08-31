@@ -1,0 +1,31 @@
+th {
+    color: white;
+    text-transform: uppercase;
+}
+
+tr {
+    border: 1px solid rgb(75 85 99);
+}
+
+td {
+    color: rgb(229 231 235);
+    
+}
+
+.link-movie {
+    cursor: pointer;
+}
+.movie_name {
+    font-size: 1.2rem;
+    color: rgb(139 92 246);
+}
+
+.movie_origin-name {
+    font-size: .875rem;
+    color: rgb(229 231 235);
+}
+
+.current-episode {
+    color: rgb(74 222 128);
+    background-color: rgb(15 23 42);
+}

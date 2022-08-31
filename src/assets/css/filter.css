@@ -1,0 +1,25 @@
+select {
+    color: rgb(255 255 255);
+    background-color: rgb(51 65 85);
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+}
+
+option {
+    text-transform: capitalize;
+}
+
+.submit-form {
+    color: rgb(255 255 255);
+    background-color: rgb(139 92 246);
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.submit-form:hover {
+    background-color: rgb(178, 147, 249);
+}
