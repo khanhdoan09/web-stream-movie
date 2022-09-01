@@ -2,7 +2,27 @@ import '../../assets/css/list.css'
 import ListItem from './list-item';
 import Filter from './filter';
 import ListData from '../data-list';
+import Pagination from './pagination';
+import { useState, useEffect } from "react";
+
+function GetDataFromApi(data, setData, api) {
+    fetch(`https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=1`, {
+        "method": "GET",})
+    .then(response => response.json())
+    .then(response => {
+        console.log(response);
+        setData(response);
+    })
+    .catch(err => { console.log(err); });
+}
+
 const List = ()=>{
+    const [data, setData] = useState({})
+    // componentDidMount
+    useEffect(() => {
+      GetDataFromApi(data, setData, '');
+    }, [])
+
     return (
         <div className='container-all p-3'>
             <Filter></Filter>
@@ -19,7 +39,7 @@ const List = ()=>{
                 </thead>
                 <tbody>       
                     {       
-                        ListData.items.map((movie, i)=><ListItem key={i} movie={movie}></ListItem>)
+                        data.items?.map((movie, i)=><ListItem key={i} movie={movie}></ListItem>)
                     }
                 </tbody>
             </table>

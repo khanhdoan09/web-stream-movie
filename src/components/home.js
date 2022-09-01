@@ -6,6 +6,7 @@ import TitleCollapse from "./title-collapse";
 import Episode from "./episode";
 import '../assets/css/home.css'
 import { useState, useEffect } from "react";
+import Pagination from "./list/pagination";
 
 function GetDataFromApi(data, setData, api) {
     fetch(`https://ophim1.com/phim/${api}`, {
@@ -13,7 +14,6 @@ function GetDataFromApi(data, setData, api) {
     .then(response => response.json())
     .then(response => {
         setData(response);
-        console.log(response);
     })
     .catch(err => { console.log(err); });
 }
