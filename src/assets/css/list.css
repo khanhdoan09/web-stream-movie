@@ -30,7 +30,11 @@ td {
     background-color: rgb(15 23 42);
 }
 
-.table__colume {
+.table__column {
     padding: 15px 15px 15px 0;
     text-align: left;
+}
+
+.contain__tr {
+    border-top: 1px solid rgb(75 85 99);
 }

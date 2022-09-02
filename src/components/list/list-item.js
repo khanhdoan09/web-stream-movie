@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import '../../assets/css/list.css'
 function GetDataFromApi(data, setData, api) {
     fetch(`https://ophim1.com/phim/${api}`, {
         "method": "GET",})
@@ -12,12 +12,29 @@ function GetDataFromApi(data, setData, api) {
 
 const ListItem = (props)=>{
     const [data, setData] = useState({})
-      // componentDidMount
       useEffect(() => {
         GetDataFromApi(data, setData, props.movie.slug);
     }, [])
+
+    console.log(data);
+    if (props.nation === 'allNation' && props.category === 'allCategory') {
+        return renderToScreen(data, props);   
+    }
+    else if (data.movie?.country?.[0].name.toString().toLowerCase() === props.nation){
+        if (data.movie?.type === props.category || props.category === 'allCategory') {
+            return renderToScreen(data, props);
+        }
+    }
+    else if (data.movie?.type === props.category) {
+        if (data.movie?.country?.[0].name.toString().toLowerCase() === props.nation || props.nation === 'allNation') {
+            return renderToScreen(data, props);
+        }
+    }
+}
+
+function renderToScreen(data, props) {
     return (
-        <tr style={{borderTop: '1px solid rgb(75 85 99)'}}>
+        <tr className="contain__tr">
             <td className="py-3">
                 <div className="d-flex align-items-center px-3">
                     <img width={60} className="rounded" src={data.movie?.thumb_url}></img>
@@ -37,4 +54,4 @@ const ListItem = (props)=>{
 }
 
 
-export default ListItem;
+export {ListItem};
