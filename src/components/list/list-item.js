@@ -15,8 +15,6 @@ const ListItem = (props)=>{
       useEffect(() => {
         GetDataFromApi(data, setData, props.movie.slug);
     }, [])
-
-    console.log(data);
     if (props.nation === 'allNation' && props.category === 'allCategory') {
         return renderToScreen(data, props);   
     }

@@ -11,7 +11,9 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="home" element={<Home />} />
-        <Route index element={<List />} />
+        <Route path="list" element={<List />}>
+          <Route path="list/:pagination" exact={true} element={<List />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

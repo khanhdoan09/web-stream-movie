@@ -1,10 +1,11 @@
 import '../../assets/css/list.css'
 import {ListItem} from './list-item';
-import { Filter } from './filter';
 import { useState, useEffect } from "react";
+import Pagination from './pagination';
+import { useLocation } from 'react-router-dom';
 
-function GetDataFromApi(data, setData, api) {
-    fetch(`https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=1`, {
+function GetDataFromApi(data, setData, pag) {
+    fetch(`https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=`+pag, {
         "method": "GET",})
     .then(response => response.json())
     .then(response => {
@@ -13,33 +14,47 @@ function GetDataFromApi(data, setData, api) {
     .catch(err => { console.log(err); });
 }
 
+let timeSelected = "allTime";
+let categorySelected = "allCategory";
+let nationSelected = "allNation";
 
-let nationSelected='all';
 const List = ()=>{
-    const [stateSelectTime, setStateSelectTime] = useState('all');
-    const [stateSelectCategory, setStateSelectCategory] = useState('allCategory');
-    const [stateSelectNation, setStateSelectNation] = useState('allNation');
+    const { search } = useLocation();
+    const pag = search ? Number(search.split("=")[1]) : 1;
+    const [stateSelectTime, setStateSelectTime] = useState(timeSelected);
+    const [stateSelectCategory, setStateSelectCategory] = useState(categorySelected);
+    const [stateSelectNation, setStateSelectNation] = useState(nationSelected);
 
     function selectStateTime(event) {
-        setStateSelectTime(event.target.value);
+        timeSelected = event.target.value;
     }
 
     function selectCategory(event) {
-        setStateSelectCategory(event.target.value);
+        categorySelected = event.target.value;
     }
 
     function selectNation(event) {
-        setStateSelectNation(event?.target?.value);
+        nationSelected = event?.target?.value;
     }
 
     function submitForm(e) {
         e.preventDefault();
+        // let sortMovie= [] 
+        // for (let movie in data) {
+        //     sortMovie.push(movie);
+        // }
+        // sortMovie.sort(function(a, b) {
+        //     return a.modified - b.modified;
+        // })
+        // setData(sortMovie);
+        setStateSelectTime(timeSelected);
+        setStateSelectCategory(categorySelected);
+        setStateSelectNation(nationSelected);
     }
 
     const [data, setData] = useState({});
-    // componentDidMount
     useEffect(() => {
-      GetDataFromApi(data, setData, '');
+      GetDataFromApi(data, setData, pag);
     }, [])
 
     return (
@@ -66,12 +81,14 @@ const List = ()=>{
                     <div className="px-2">
                         <select onChange={selectNation}>
                             <option value="allNation">Toàn bộ quốc gia</option>
+                            <option value="việt nam">Việt Nam</option>
                             <option value="anh">Âu mỹ</option>
                             <option value="trung quốc">Trung quốc</option>
                             <option value="nhật bản">Nhật bản</option>
                             <option value="hàn quốc">Hàn quốc</option>
                             <option value="thái lan">Thái Lan</option>
                             <option value="pháp">Pháp</option>
+                            <option value="thổ nhĩ kỳ">Thổ Nhĩ Kỳ</option>
                         </select>
                     </div>
                     <div>
@@ -97,6 +114,7 @@ const List = ()=>{
                     }
                 </tbody>
             </table>
+            <Pagination pagination={data?.pagination}></Pagination>
         </div>
     );
 }
