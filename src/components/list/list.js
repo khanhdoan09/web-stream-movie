@@ -3,6 +3,7 @@ import {ListItem} from './list-item';
 import { useState, useEffect } from "react";
 import Pagination from './pagination';
 import { useLocation } from 'react-router-dom';
+import Search from './search';
 
 function GetDataFromApi(data, setData, pag) {
     fetch(`https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=`+pag, {
@@ -18,7 +19,19 @@ let timeSelected = "allTime";
 let categorySelected = "allCategory";
 let nationSelected = "allNation";
 
+function SearchDataFromApi(keyword, setData) {
+
+    fetch(`https://ophim.cc/_next/data/jMo1r8lC0F6IGwkz0ayh-/tim-kiem.json?keyword=`+keyword, {
+        method: "GET",})
+    .then(response => response.json())
+    .then(response => {
+        setData(response.pageProps.data);
+    })
+    .catch(err => { console.log(err); });
+}
+
 const List = ()=>{
+    const [data, setData] = useState({});
     const { search } = useLocation();
     const pag = search ? Number(search.split("=")[1]) : 1;
     const [stateSelectTime, setStateSelectTime] = useState(timeSelected);
@@ -37,6 +50,14 @@ const List = ()=>{
         nationSelected = event?.target?.value;
     }
 
+    function submitSearchForm(e) {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        let keyword = data.get("search");
+        SearchDataFromApi(keyword, setData)
+    }
+    
+
     function submitForm(e) {
         e.preventDefault();
         // let sortMovie= [] 
@@ -52,14 +73,16 @@ const List = ()=>{
         setStateSelectNation(nationSelected);
     }
 
-    const [data, setData] = useState({});
     useEffect(() => {
       GetDataFromApi(data, setData, pag);
     }, [])
 
     return (
         <div className='container-all p-3'>
-              <div className="container__content p-3">
+              <div className="container__content p-3 d-flex">
+              <form onSubmit={submitSearchForm}>
+                <input placeholder="tìm kiếm" type="text" name="search"/>
+                </form>
             <form className="d-flex flex-wrap align-items-center" onSubmit={submitForm}>
                 <span className="px-3">Lọc Phim</span>
                 <div className="d-flex flex-wrap">
@@ -114,7 +137,7 @@ const List = ()=>{
                     }
                 </tbody>
             </table>
-            <Pagination pagination={data?.pagination}></Pagination>
+            <Pagination pagination={data?.params != undefined ? data?.params?.pagination : data?.pagination}></Pagination>
         </div>
     );
 }

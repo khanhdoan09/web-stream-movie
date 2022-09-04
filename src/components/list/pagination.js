@@ -3,7 +3,10 @@ const Pagination = (props)=>{
     let currentPage = props?.pagination?.currentPage;
     let list = [];
     let startPagination = 1;
-    let endPagination = props.pagination?.totalPages < 5? props.pagination?.totalPages: 5;
+    // props.pagination?.totalPages là lấy từ get api
+    // props.pagination?.pageRanges là lấy từ get api with key word
+    let totalPage = props.pagination?.totalPages? props.pagination?.totalPages: props.pagination?.pageRanges;
+    let endPagination = totalPage < 5? totalPage : 5;
 
     if (currentPage > 3) {
         startPagination = currentPage - 2;
