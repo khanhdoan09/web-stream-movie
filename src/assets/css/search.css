@@ -1,0 +1,16 @@
+
+.contain__search {
+    background-color: rgb(30 41 59);
+    border: 1px solid rgb(95, 97, 99);
+    border-radius: 20px;
+    padding: 2px 8px;
+    color: white;
+}
+
+.input-search {
+    background-color: rgb(30 41 59);
+    border: none;
+    outline: none;
+    color: white;
+    margin: 0 5px;
+}
