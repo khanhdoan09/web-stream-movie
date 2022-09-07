@@ -31,7 +31,7 @@ const Pagination = (props)=>{
         }
     }
     return (
-        <div className = "d-flex flex-wrap justify-content-end w-100">
+        <div className = "d-flex justify-content-end w-100">
             <a className="pag" href={`list?pagination=1`}>&lt;&lt;</a>
             <a className="pag" href={`list?pagination=${currentPage>0?currentPage-1:1}`}>&lt;</a>
             {list}

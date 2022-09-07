@@ -4,7 +4,7 @@ import Poster from "./poster";
 import Content from "./content";
 import TitleCollapse from "./title-collapse";
 import Episode from "./episode";
-import '../assets/css/home.css'
+import '../../assets/css/home.css'
 import { useState, useEffect } from "react";
 
 function GetDataFromApi(data, setData, api) {

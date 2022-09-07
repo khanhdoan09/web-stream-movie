@@ -30,28 +30,24 @@ const Filter = (props) =>{
         sortMovie.sort(function(a, b) {
             return a.year - b.year;
         })
-        // props.setData((data)=>({...data, items: [sortMovie]}));
         let newData = JSON.parse(JSON.stringify(props.data));
         newData.items = sortMovie;
         props.setData(newData);
-        // props.setStateSelectTime(timeSelected);
-        // props.setStateSelectCategory(categorySelected);
-        // props.setStateSelectNation(nationSelected);
     }
 
 
     return (
         <form className="d-flex flex-wrap align-items-center" onSubmit={submitFilterForm}>
-        <span className="px-3">Lọc Phim</span>
+        <span className="px-3 py-2">Lọc Phim</span>
         <div className="d-flex flex-wrap">
-            <div className="px-2">
+            <div className="px-2 py-2">
                 <select onChange={selectStateTime}>
                     <option value="newest">Phim mới nhất</option>
                     <option value="update">Thời gian cập nhật</option>
                     <option value="year">Năm sản xuất</option>
                 </select>
             </div>
-            <div className="px-2">
+            <div className="px-2 py-2">
                 <select onChange={selectCategory}>
                     <option value="allCategory">Toàn bộ thể loại</option>
                     <option value="series">Phim bộ</option>
@@ -59,7 +55,7 @@ const Filter = (props) =>{
                     <option value="tvshows">TV show</option>
                 </select>
             </div>
-            <div className="px-2">
+            <div className="px-2 py-2">
                 <select onChange={selectNation}>
                     <option value="allNation">Toàn bộ quốc gia</option>
                     <option value="việt nam">Việt Nam</option>
@@ -73,10 +69,10 @@ const Filter = (props) =>{
                     <option value="thổ nhĩ kỳ">Thổ Nhĩ Kỳ</option>
                 </select>
             </div>
-            <div>
-                <button className="submit-form mx-2" type="submit">Lọc Phim</button>
-            </div>
         </div>
+        <div className="d-block py-2">
+                <button className="submit-form mx-2 d-block" type="submit">Lọc Phim</button>
+            </div>
     </form>
     )
 }

@@ -28,6 +28,7 @@ td {
 .current-episode {
     color: rgb(74 222 128);
     background-color: rgb(15 23 42);
+    white-space: nowrap;
 }
 
 .table__column {
@@ -35,8 +36,16 @@ td {
     text-align: left;
 }
 
+.container__table {
+    overflow-x: auto;
+}
 .contain__tr {
+    width: 100%;
     border-top: 1px solid rgb(75 85 99);
+}
+
+.main {
+    width: 400px;
 }
 
 /* filter */

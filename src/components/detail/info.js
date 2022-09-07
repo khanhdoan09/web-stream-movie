@@ -1,4 +1,4 @@
-import "../assets/css/info.css"
+import "../../assets/css/info.css"
 
 function dataRowTable(leftColumn, rightColumn) {
     return (

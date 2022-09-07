@@ -1,4 +1,4 @@
-const Breadcrumb = (props) =>{
+const Breadcrumb = () =>{
     const breadcrumb = ['trang chủ', 'phim bộ', 'âu mỹ', 'hành động', 'viễn tưởng', 'phiêu lưu', 'gia tộc rồng']
     return (
         <div>

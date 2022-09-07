@@ -1,11 +1,13 @@
 .container__img {
     flex: 1;
-    display: flex;
-    align-items: flex-end;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .img {
-    border-radius: 10px;
+    padding-top: 10px;
+    border-radius: 5%;
     max-width: 295px;
 }
 
