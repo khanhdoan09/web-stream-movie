@@ -23,17 +23,20 @@ const Filter = (props) =>{
 
     function submitFilterForm(e) {
         e.preventDefault();
-        // let sortMovie= [] 
-        // for (let movie in data) {
-        //     sortMovie.push(movie);
-        // }
-        // sortMovie.sort(function(a, b) {
-        //     return a.modified - b.modified;
-        // })
-        // setData(sortMovie);
+        let sortMovie= [] 
+        for (let movie of props.data.items) {
+            sortMovie.push(movie);
+        }
+        sortMovie.sort(function(a, b) {
+            return a.year - b.year;
+        })
+        // props.setData((data)=>({...data, items: [sortMovie]}));
+        let newData = JSON.parse(JSON.stringify(props.data));
+        newData.items = sortMovie;
+        props.setData(newData);
         // props.setStateSelectTime(timeSelected);
-        props.setStateSelectCategory(categorySelected);
-        props.setStateSelectNation(nationSelected);
+        // props.setStateSelectCategory(categorySelected);
+        // props.setStateSelectNation(nationSelected);
     }
 
 

@@ -20,7 +20,7 @@ function dataRowTableWithObject(leftColumn, rightColumn){
 const Info = (props)=>{
 
     return(
-    <div className={'col-sm-12 col-md-6 col-lg-9 px-3'}>
+    <div className={'px-3 container__info'}>
         <p className='my-2 name'>{props.movie?.name}</p>
         <p className="origin-name">{props.movie?.origin_name}</p>
         <div>

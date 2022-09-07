@@ -6,7 +6,6 @@ import TitleCollapse from "./title-collapse";
 import Episode from "./episode";
 import '../assets/css/home.css'
 import { useState, useEffect } from "react";
-import Pagination from "./list/pagination";
 
 function GetDataFromApi(data, setData, api) {
     fetch(`https://ophim1.com/phim/${api}`, {
@@ -32,7 +31,7 @@ const Home = ()=>{
             <div className={'container mx-auto'}>
                 <Breadcrumb movie={data.movie} />
             <div className={'d-flex flex-column'}>
-                    <div className={'row w-100 p-1 py-2 container__content'}>
+                    <div className={'d-flex flex-wrap w-100 p-1 py-2 container__content'}>
                         <Poster movie={data.movie}></Poster>
                         <Info movie={data.movie}></Info>
                     </div>

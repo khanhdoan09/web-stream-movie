@@ -19,13 +19,13 @@ function GetDataFromApi(data, setData, pag) {
 
 
 const List = ()=>{
-    const [data, setData] = useState({});
     const { search } = useLocation();
     const pag = search ? Number(search.split("=")[1]) : 1;
    
     let timeSelected = "allTime";
     let categorySelected = "allCategory";
     let nationSelected = "allNation";
+    const [data, setData] = useState({});
     const [stateSelectTime, setStateSelectTime] = useState(timeSelected);
     const [stateSelectCategory, setStateSelectCategory] = useState(categorySelected);
     const [stateSelectNation, setStateSelectNation] = useState(nationSelected);
@@ -38,7 +38,7 @@ const List = ()=>{
         <div className='container-all p-3'>
             <div className="container__content p-3 d-flex">
             <Search setData={setData}></Search>
-            <Filter setStateSelectCategory={setStateSelectCategory} setStateSelectNation={setStateSelectNation}></Filter>
+            <Filter setStateSelectCategory={setStateSelectCategory} setStateSelectNation={setStateSelectNation} data={data} setData={setData}></Filter>
         </div>
             <table className='w-100 my-3 container__content'>
                 <thead className='w-100'>

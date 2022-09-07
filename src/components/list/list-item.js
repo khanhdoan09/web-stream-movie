@@ -46,7 +46,7 @@ function renderToScreen(data, props) {
             <td><span className='current-episode p-2 rounded'>{data.movie?.episode_current}</span></td>
             <td>{data.movie?.country?.[0].name}</td>
             <td>{data.movie?.quality}</td>
-            <td>{props.movie?.modified.time}</td>
+            <td>{props.movie?.modified?.time}</td>
         </tr>
     )
 }
