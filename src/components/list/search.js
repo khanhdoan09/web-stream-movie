@@ -17,7 +17,7 @@ const Search = (props)=>{
         e.preventDefault();
         const data = new FormData(e.target);
         let keyword = data.get("search");
-        SearchDataFromApi(keyword)
+        SearchDataFromApi(keyword);
     }
 
     
