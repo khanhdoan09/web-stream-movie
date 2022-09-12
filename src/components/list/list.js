@@ -33,7 +33,7 @@ const List = ()=>{
 
     return (
         <div className='container-all p-3'>
-            <div className="container__content p-3 d-flex flex-wrap">
+            <div className="container__content p-3 d-flex flex-wrap" style={{height:"100px"}}>
             <Search setData={setData}></Search>
             <Filter setStateSelectCategory={setStateSelectCategory} setStateSelectNation={setStateSelectNation} data={data} setData={setData}></Filter>
         </div>
