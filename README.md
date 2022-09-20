@@ -5,5 +5,3 @@ To use search service please download this extension and open it [CORS Unblock](
 
 Still update ...
 
-# Link web stream movie
-https://testabcd-35d56.web.app/
