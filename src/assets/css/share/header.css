@@ -1,0 +1,31 @@
+.container__header {
+    margin-bottom: 40px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.signIn {
+    cursor: pointer;
+    color: #9b9b9b;
+    font-size: 18px;
+}
+
+.signIn:hover {
+    color: #ff6500;
+}
+
+.display_nav {
+    opacity: 1;
+    height: auto;
+}
+
+.hidden_nav {
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}

@@ -36,11 +36,18 @@ const Login = () =>{
     }
 
     function submitToApi(email, password) {
-        fetch(`http://localhost:8080/api/auth/login?username=${email}&password=${password}&isAdmin=1`, {method: "POST",}).
+        // fetch(`https://stream-movie-1.herokuapp.com/api/auth/login?username=${email}&password=${password}`, {method: "POST",}).
+        fetch(`http://localhost:8080/api/auth/login?username=${email}&password=${password}`,
+         {method: "POST",}).
         then(response => response.json()).
         then(response => {
-            if (response.response === 'ok') {
+            console.log(response);
+            if (response.message === 'ok') {
+                localStorage.setItem("jwt", response.jwt);
                 window.location.href = "/list?pagination=1"
+            }
+            else if (response.message === 'error: username is not exist') {
+                alert("error: username is not exist")
             }
         })
     }

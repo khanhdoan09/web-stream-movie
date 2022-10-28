@@ -1,14 +1,15 @@
 import '../../assets/css/search.css'
-
+import { useContext } from 'react';
+import { SearchContext } from './list';
 
 const Search = (props)=>{
-    
-    function SearchDataFromApi(keyword, setData) {
-        fetch(`https://ophim.cc/_next/data/jMo1r8lC0F6IGwkz0ayh-/tim-kiem.json?keyword=`+keyword, {
+    const setData = useContext(SearchContext);
+    function SearchDataFromApi(keyword) {
+        fetch(`http://localhost:8080/api/movie/search/`+keyword, {
             method: "GET",})
         .then(response => response.json())
         .then(response => {
-            props.setData(response.pageProps.data);
+            setData(response)
         })
         .catch(err => { console.log(err); });
     }
@@ -19,8 +20,6 @@ const Search = (props)=>{
         let keyword = data.get("search");
         SearchDataFromApi(keyword);
     }
-
-    
     return (
         <div className='py-3'>
             <form onSubmit={submitSearchForm} className="contain__search">

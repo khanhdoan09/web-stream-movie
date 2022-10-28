@@ -7,6 +7,10 @@ import Register from "./components/auth/register";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import './assets/css/main.css';
+import { createStoreHook } from "react-redux";
+import rootReducers from "./reducers/rootReducers";
+
+
 
 export default function App() {
   return (

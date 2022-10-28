@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "../../assets/css/auth/login.css"
 const Register = () =>{
+    const [errorMessageName, setErrorMessageName] = useState("");
     const [errorMessageEmail, setErrorMessageEmail] = useState("");
     const [errorMessagePassword, setErrorMessagePassword] = useState("");
     const [errorMessageRePassword, setErrorMessageRePassword] = useState("");
@@ -13,6 +14,12 @@ const Register = () =>{
         let email = form.get("email");
         let password = form.get("password");
         let rePassword = form.get("rePassword");
+        let fullName = form.get("fullName");
+
+        if (fullName === ''){
+            setErrorMessageName("tên không được để trống");
+            check = false;
+        }
         if (email === '') { 
             setErrorMessageEmail("email không được để trống");
             check = false;
@@ -26,28 +33,36 @@ const Register = () =>{
             check = false;
         }
         if (check) {
-            submitToApi(email, password);
+            submitToApi(email, password, fullName);
         }
     }
 
     function resetState() {
+        setErrorMessageName("");
         setErrorMessageEmail("");
         setErrorMessagePassword("");
         setErrorMessageRePassword("");
     }
     
+    function renderErrorMessageName() {
+        return (<div className="errorMessage">{errorMessageName}</div>)
+    }
+
     function renderErrorMessageEmail() {
         return (<div className="errorMessage">{errorMessageEmail}</div>)
     }
+
     function renderErrorMessagePassword() {
         return (<div className="errorMessage">{errorMessagePassword}</div>)
     }
+
     function renderErrorMessageRePassword() {
         return (<div className="errorMessage">{errorMessageRePassword}</div>)
     }
 
-    function submitToApi(email, password) {
-        fetch(`http://localhost:8080/api/auth/register?username=${email}&password=${password}&isAdmin=1`, {method: "POST",}).
+    function submitToApi(email, password, fullName) {
+                // fetch(`http://localhost:8080/api/auth/register?username=${email}&password=${password}&isAdmin=1&fullName=${fullName}`, {method: "POST",}).
+        fetch(`https://stream-movie-1.herokuapp.com/api/auth/register?username=${email}&password=${password}&isAdmin=1&fullName=${fullName}`, {method: "POST",}).
         then(response => response.json()).
         then(response => {
             console.log(response);
@@ -68,6 +83,11 @@ const Register = () =>{
                         <h2 className="title">web stream movie</h2>
                     </div>
                     <form className="contain__form" onSubmit={submitForm}>
+                        <div className="form_group">
+                            <label htmlFor="fullName">Tên</label>
+                            <input type="text" placeholder="nhập email" name="fullName" id="fullName"/>
+                            {renderErrorMessageName()}
+                        </div>
                         <div className="form_group">
                             <label htmlFor="email">Email</label>
                             <input type="email" placeholder="nhập email" name="email" id="email"/>

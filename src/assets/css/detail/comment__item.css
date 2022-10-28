@@ -1,0 +1,58 @@
+.contain__comment_item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(60, 73, 83);
+}
+
+.contain__content {
+    margin: 0 10px;
+    padding: 0 10px;
+    border-radius: 8px;
+    width: 75%;
+}
+
+.contain__img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin: 10px 0;
+}
+
+.username {
+    color: black;
+    font-size: 25px;
+    color: white;
+}
+
+.content {
+    color: black;
+    font-size: 22px;
+    color: #bdcaf3;
+}
+
+.time {
+    color: black;
+    font-size: 12px;
+    color: #bdcaf3;
+}
+
+.fa-thumbs-up {
+    color: rgb(146, 242, 146);
+    cursor: pointer;
+}
+
+.like-active {
+    color: green !important;
+}
+
+.dislike-active {
+    color: red !important;
+}
+
+.fa-thumbs-down {
+    color: rgb(243, 184, 184);
+    cursor: pointer;
+}
+
+.color_light_blue {
+    color: #bdcaf3;
+}
