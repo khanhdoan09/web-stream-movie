@@ -18,7 +18,7 @@ const Filter = (props) =>{
             "method": "GET",})
         .then(response => response.json())
         .then(response => {
-            setCountries(response.message);
+            setCountries(response);
         })
         .catch(err => { console.log(err); });
     }
@@ -28,7 +28,7 @@ const Filter = (props) =>{
             "method": "GET",})
         .then(response => response.json())
         .then(response => {
-            setCategories(response.message);
+            setCategories(response);
         })
         .catch(err => { console.log(err); });
     }

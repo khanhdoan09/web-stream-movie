@@ -57,7 +57,7 @@ const Header = (props) => {
     return (
         <div>
           <div className="d-flex flex-wrap justify-content-between">
-                    <a href="/home">
+                    <a href="/">
                         <img src="https://motphimtv.info/motphimtv.png" className="px-5"/>
                     </a>
                     <div className="d-none d-lg-flex flex-wrap justify-content-center flex-column px-5 mx-5">

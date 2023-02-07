@@ -37,17 +37,17 @@ function renderToScreen(data, props) {
         <tr className="contain__tr">
             <td className="py-3">
                 <div className="d-flex align-items-center px-3 main">
-                    <img width={60} className="rounded" src={data?.thumbUrl}></img>
-                    <a className="px-2 link-movie" href={"/home?movie="+props.movie.movieId}>
+                    <img width={60} className="rounded" src={props?.movie?.posterUrl}></img>
+                    <a className="px-2 link-movie" href={"/home?movie="+props.movie.slug}>
                         <h3 className={'movie_name font-medium'}>{props.movie.name}</h3>
                         <h4 className={'movie_origin-name'}>({props.movie.originName})</h4>
                     </a>
                 </div>
             </td>
             <td>{props.movie?.year}</td>
-            <td><span className='current-episode p-2 rounded'>{data?.episodeCurrent}</span></td>
+            <td><span className='current-episode p-2 rounded'>{props?.movie?.status}</span></td>
             <td>{props.movie?.country?.name}</td>
-            <td>{data?.quality}</td>
+            <td>{props?.movie?.quality}</td>
         </tr>
     )
 }
